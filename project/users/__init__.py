@@ -5,4 +5,4 @@ users_router = APIRouter(
     prefix="/users",
 )
 
-from . import models  # noqa
+from . import models, tasks # noqa
