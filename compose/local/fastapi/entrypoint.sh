@@ -5,7 +5,7 @@ set -o errexit
 # fail exit if one of your pipe command fails
 set -o pipefail
 # exits if any of your variables is not set
-set -o onunset
+set -o nounset
 
 postgres_ready() {
   python <<END
@@ -26,8 +26,8 @@ try:
   psycopg2.connect(
     dbname=dbname,
     user=user,
-    password=password
-    host=host
+    password=password,
+    host=host,
     port=port
   )
 except psycopg2.OperationalError:
